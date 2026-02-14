@@ -2,9 +2,34 @@
 
 支持文件、文件夹收发。
 
-绿色跨平台单文件，仅服务端启动即可。
+绿色跨平台单文件，仅服务端启动即可。可通过浏览器、命令行（如curl）收发。
 
-可通过浏览器、命令行（如curl）收发。
+服务端发
+```
+# 发送文件
+fileshare-server send test_file.txt
+
+# 发送文件夹
+fileshare-server send test_download
+```
+
+对端收
+```
+#接收文件/文件夹
+curl -O -J "http://127.0.0.1:51809/api/download"
+```
+
+服务端收
+```
+fileshare-server recv test_download/
+```
+
+对端发
+```
+curl -F "file=@1_preview.txt" "http://127.0.0.1:51693/api/upload"
+```
+
+
 
 注意！！！
 
